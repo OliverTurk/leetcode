@@ -6,13 +6,13 @@ class Solution:
 
         for i in range(len(s)):
             if s[i] in charset:
-                charset.remove(i)
+                while s[i] in charset:
+                    charset.remove(s[l])
+                    l += 1
 
-            charset.add(i)
+            charset.add(s[i])
 
-            l = len(charset)
-
-            res = max(l, res)
+            res = max(res, i - l+1)
 
         return res
 
